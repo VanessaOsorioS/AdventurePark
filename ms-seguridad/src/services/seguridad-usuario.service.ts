@@ -92,11 +92,11 @@ export class SeguridadUsuarioService {
       let nuevaClave = this.crearClaveAleatoria();
       let nuevaClaveCifrada = this.cifrarCadena(nuevaClave);
       usuario.clave = nuevaClaveCifrada;
-      this.usuarioRepository.replaceById(usuario._id, usuario)
+      this.usuarioRepository.updateById(usuario._id, usuario)
 
-      let mensaje = `hola ${usuario.nombres} <br/> Su contraseña ha sido actualizada a ${nuevaClave} satisfactoriamente, si no ha sido usted quien actualizó la contraseña, por favor tome las medidas pertinentes <br/><br/> Saludos desde AdventurePark!!`
+      let mensaje = `Hola ${usuario.nombres} <br/> Su contraseña ha sido actualizada a ${nuevaClave} satisfactoriamente, si no ha sido usted quien actualizó la contraseña, por favor tome las medidas pertinentes <br/><br/> Saludos desde AdventurePark!!`
 
-      params.append('hash_validator', 'Admin@notification.sender');
+      params.append('hash_validator', 'Admin@email.sender');
       params.append('destination', usuario.correo);
       params.append('subject', Keys.mensajeAsuntoRecuperarClave);
       params.append('message', mensaje);
