@@ -27,6 +27,10 @@ export class PuestoComida extends Entity {
   })
   menu: string;
 
+  @property({
+    type: 'number',
+  })
+  zonaId?: number;
 
   constructor(data?: Partial<PuestoComida>) {
     super(data);

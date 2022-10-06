@@ -21,6 +21,15 @@ export class Mantenimiento extends Entity {
   })
   descripcion: string;
 
+  @property({
+    type: 'number',
+  })
+  atraccionId?: number;
+
+  @property({
+    type: 'number',
+  })
+  tipoMantenimientoId?: number;
 
   constructor(data?: Partial<Mantenimiento>) {
     super(data);
