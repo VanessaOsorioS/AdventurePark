@@ -33,6 +33,15 @@ export class Plan extends Entity {
   })
   fecha: string;
 
+  @property({
+    type: 'number',
+  })
+  parqueId?: number;
+
+  @property({
+    type: 'number',
+  })
+  facturaId?: number;
 
   constructor(data?: Partial<Plan>) {
     super(data);
