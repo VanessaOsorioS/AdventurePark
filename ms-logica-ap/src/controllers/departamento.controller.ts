@@ -21,7 +21,7 @@ import {
 import {Departamento} from '../models';
 import {DepartamentoRepository} from '../repositories';
 
-@authenticate("admin")
+// @authenticate("admin")
 export class DepartamentoController {
   constructor(
     @repository(DepartamentoRepository)

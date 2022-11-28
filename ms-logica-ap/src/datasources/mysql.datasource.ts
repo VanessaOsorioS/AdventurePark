@@ -9,11 +9,11 @@ const config = {
   port: 3306,
   user: 'root',
   // Valeriana
-  // password: '123456789',
-  // database: 'adventurepark_db',
+  password: '123456789',
+  database: 'adventurepark_db',
   // Jhones
-  password: 'unodos3tres',
-  database: 'ap'
+  // password: 'unodos3tres',
+  // database: 'ap'
   // Vanessa
   // password: 'Vane_1205',
   // database: 'adventurepark_db'

@@ -43,9 +43,8 @@ export class Parque extends Entity {
 
   @property({
     type: 'string',
-    required: true,
   })
-  mapa: string;
+  mapa?: string;
 
   @property({
     type: 'string',
