@@ -42,9 +42,6 @@ export class Factura extends Entity {
   })
   visitanteId?: number;
 
-  @hasMany(() => Plan)
-  plans: Plan[];
-
   constructor(data?: Partial<Factura>) {
     super(data);
   }

@@ -9,3 +9,5 @@ export * from './puesto-comida.repository';
 export * from './tipo-mantenimiento.repository';
 export * from './visitante.repository';
 export * from './zona.repository';
+export * from './factura.repository';
+export * from './plan.repository';

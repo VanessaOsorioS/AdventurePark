@@ -22,3 +22,5 @@ export * from './atraccion-mantenimiento.controller';
 export * from './tipo-mantenimiento-mantenimiento.controller';
 export * from './archivos.controller';
 export * from './factura-plan.controller';
+export * from './factura.controller';
+export * from './plan.controller';

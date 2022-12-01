@@ -26,7 +26,7 @@ export class FacturaController {
     public facturaRepository : FacturaRepository,
   ) {}
 
-  @post('/factura')
+  @post('/facturas')
   @response(200, {
     description: 'Factura model instance',
     content: {'application/json': {schema: getModelSchemaRef(Factura)}},
@@ -47,7 +47,7 @@ export class FacturaController {
     return this.facturaRepository.create(factura);
   }
 
-  @get('/factura/count')
+  @get('/facturas/count')
   @response(200, {
     description: 'Factura model count',
     content: {'application/json': {schema: CountSchema}},
@@ -58,7 +58,7 @@ export class FacturaController {
     return this.facturaRepository.count(where);
   }
 
-  @get('/factura')
+  @get('/facturas')
   @response(200, {
     description: 'Array of Factura model instances',
     content: {
@@ -76,7 +76,7 @@ export class FacturaController {
     return this.facturaRepository.find(filter);
   }
 
-  @patch('/factura')
+  @patch('/facturas')
   @response(200, {
     description: 'Factura PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -95,7 +95,7 @@ export class FacturaController {
     return this.facturaRepository.updateAll(factura, where);
   }
 
-  @get('/factura/{id}')
+  @get('/facturas/{id}')
   @response(200, {
     description: 'Factura model instance',
     content: {
@@ -111,7 +111,7 @@ export class FacturaController {
     return this.facturaRepository.findById(id, filter);
   }
 
-  @patch('/factura/{id}')
+  @patch('/facturas/{id}')
   @response(204, {
     description: 'Factura PATCH success',
   })
@@ -129,7 +129,7 @@ export class FacturaController {
     await this.facturaRepository.updateById(id, factura);
   }
 
-  @put('/factura/{id}')
+  @put('/facturas/{id}')
   @response(204, {
     description: 'Factura PUT success',
   })
@@ -140,7 +140,7 @@ export class FacturaController {
     await this.facturaRepository.replaceById(id, factura);
   }
 
-  @del('/factura/{id}')
+  @del('/facturas/{id}')
   @response(204, {
     description: 'Factura DELETE success',
   })
