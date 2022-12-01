@@ -21,3 +21,4 @@ export * from './zona-atraccion.controller';
 export * from './atraccion-mantenimiento.controller';
 export * from './tipo-mantenimiento-mantenimiento.controller';
 export * from './archivos.controller';
+export * from './factura-plan.controller';

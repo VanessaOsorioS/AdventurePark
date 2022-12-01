@@ -42,7 +42,7 @@ export class FacturaPlanController {
     @param.path.number('id') id: number,
     @param.query.object('filter') filter?: Filter<Plan>,
   ): Promise<Plan[]> {
-    return this.facturaRepository.planes(id).find(filter);
+    return this.facturaRepository.plans(id).find(filter);
   }
 
   @post('/facturas/{id}/plans', {
@@ -67,7 +67,7 @@ export class FacturaPlanController {
       },
     }) plan: Omit<Plan, 'codigo'>,
   ): Promise<Plan> {
-    return this.facturaRepository.planes(id).create(plan);
+    return this.facturaRepository.plans(id).create(plan);
   }
 
   @patch('/facturas/{id}/plans', {
@@ -90,7 +90,7 @@ export class FacturaPlanController {
     plan: Partial<Plan>,
     @param.query.object('where', getWhereSchemaFor(Plan)) where?: Where<Plan>,
   ): Promise<Count> {
-    return this.facturaRepository.planes(id).patch(plan, where);
+    return this.facturaRepository.plans(id).patch(plan, where);
   }
 
   @del('/facturas/{id}/plans', {
@@ -105,6 +105,6 @@ export class FacturaPlanController {
     @param.path.number('id') id: number,
     @param.query.object('where', getWhereSchemaFor(Plan)) where?: Where<Plan>,
   ): Promise<Count> {
-    return this.facturaRepository.planes(id).delete(where);
+    return this.facturaRepository.plans(id).delete(where);
   }
 }

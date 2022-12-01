@@ -12,10 +12,14 @@ export class FacturaRepository extends DefaultCrudRepository<
 
   public readonly planes: HasManyRepositoryFactory<Plan, typeof Factura.prototype.id>;
 
+  public readonly plans: HasManyRepositoryFactory<Plan, typeof Factura.prototype.id>;
+
   constructor(
     @inject('datasources.mysql') dataSource: MysqlDataSource, @repository.getter('PlanRepository') protected planRepositoryGetter: Getter<PlanRepository>,
   ) {
     super(Factura, dataSource);
+    this.plans = this.createHasManyRepositoryFactoryFor('plans', planRepositoryGetter,);
+    this.registerInclusionResolver('plans', this.plans.inclusionResolver);
     this.planes = this.createHasManyRepositoryFactoryFor('planes', planRepositoryGetter,);
     this.registerInclusionResolver('planes', this.planes.inclusionResolver);
   }
