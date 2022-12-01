@@ -24,3 +24,7 @@ export * from './archivos.controller';
 export * from './factura-plan.controller';
 export * from './factura.controller';
 export * from './plan.controller';
+export * from './factura-plan.controller';
+export * from './plan-factura.controller';
+export * from './factura-plan.controller';
+export * from './plan-factura.controller';

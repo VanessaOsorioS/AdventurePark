@@ -37,12 +37,12 @@ export class PlanController {
         'application/json': {
           schema: getModelSchemaRef(Plan, {
             title: 'NewPlan',
-            exclude: ['id'],
+            exclude: ['codigo'],
           }),
         },
       },
     })
-    plan: Omit<Plan, 'id'>,
+    plan: Omit<Plan, 'codigo'>,
   ): Promise<Plan> {
     return this.planRepository.create(plan);
   }
