@@ -46,6 +46,7 @@ export class UsuarioController {
   ): Promise<Usuario> {
 
     let claveGenerada = this.servicioSeguridad.crearClaveAleatoria();
+    console.log(claveGenerada)
     let claveCifrada = this.servicioSeguridad.cifrarCadena(claveGenerada)
     usuario.clave = claveCifrada;
     // notificar al usuario que se ha creado en el sistema
@@ -153,10 +154,11 @@ export class UsuarioController {
     await this.usuarioRepository.deleteById(id);
   }
 
-  /**
-   * Bloque de métodos personalizados para la seguridad
-   */
+  // BLOQUE DE MÉTODOS PERSONALIZADOS PARA LA SEGURIDAD
 
+  /**
+   * Primera parte del login, donde se verifica el usuario y se le envia código de verificación
+   */
   @post('/login')
   @response(200, {
     description: 'identificación de usuarios',
@@ -171,11 +173,30 @@ export class UsuarioController {
       },
     })
     credenciales: CredencialesLogin,
-  ): Promise<string> {
+  ): Promise<boolean> {
     try {
-      return this.servicioSeguridad.identificarUsuario(credenciales)
+      // return this.servicioSeguridad.identificarUsuario(credenciales)
+      return this.servicioSeguridad.envioCodigo(credenciales)
     } catch (error) {
       throw new HttpErrors[400](`Se ha generado un error en la validación de las credenciales del usuario: ${credenciales.nombreUsuario}`)
+    }
+  }
+  
+  /**
+   * Segunda parte del login, donde se verifica el código enviado y se le da el jwt
+   */
+  @post('/verificar-codigo/{codigo}')
+  @response(200, {
+    description: 'verificacion del codigo',
+    content: {'application/json': {schema: getModelSchemaRef(Object)}},
+  })
+  async verificarCodigo(
+    @param.path.string('codigo') codigo: number,
+  ): Promise<object> {
+    try {
+      return this.servicioSeguridad.ValidarCodigo(codigo)
+    } catch (error) {
+      throw new HttpErrors[400](`Se ha generado un error en la validación del codigo`)
     }
   }
 
