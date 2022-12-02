@@ -9,7 +9,7 @@ export class Plan extends Entity {
     generated: false,
     required: true,
   })
-  codigo: number;
+  id: number;
 
   @property({
     type: 'string',
@@ -33,6 +33,12 @@ export class Plan extends Entity {
     required: true,
   })
   fecha: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  descripcion: string;
 
   @property({
     type: 'number',

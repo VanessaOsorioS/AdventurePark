@@ -60,12 +60,12 @@ export class ParquePlanController {
         'application/json': {
           schema: getModelSchemaRef(Plan, {
             title: 'NewPlanInParque',
-            exclude: ['codigo'],
+            exclude: ['id'],
             optional: ['parqueId']
           }),
         },
       },
-    }) plan: Omit<Plan, 'codigo'>,
+    }) plan: Omit<Plan, 'id'>,
   ): Promise<Plan> {
     return this.parqueRepository.planes(id).create(plan);
   }

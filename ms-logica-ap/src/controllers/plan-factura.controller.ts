@@ -54,7 +54,7 @@ export class PlanFacturaController {
     },
   })
   async create(
-    @param.path.number('id') id: typeof Plan.prototype.codigo,
+    @param.path.number('id') id: typeof Plan.prototype.id,
     @requestBody({
       content: {
         'application/json': {

@@ -9,3 +9,4 @@ export * from './mantenimiento.model';
 export * from './puesto-comida.model';
 export * from './plan.model';
 export * from './factura.model';
+export * from './plan.model';

@@ -6,11 +6,11 @@ import {FacturaRepository} from './factura.repository';
 
 export class PlanRepository extends DefaultCrudRepository<
   Plan,
-  typeof Plan.prototype.codigo,
+  typeof Plan.prototype.id,
   PlanRelations
 > {
 
-  public readonly facturas: HasManyRepositoryFactory<Factura, typeof Plan.prototype.codigo>;
+  public readonly facturas: HasManyRepositoryFactory<Factura, typeof Plan.prototype.id>;
 
   constructor(
     @inject('datasources.mysql') dataSource: MysqlDataSource, @repository.getter('FacturaRepository') protected facturaRepositoryGetter: Getter<FacturaRepository>,
