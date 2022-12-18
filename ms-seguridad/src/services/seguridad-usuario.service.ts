@@ -103,6 +103,7 @@ export class SeguridadUsuarioService {
     })
     if (usuario) {
       let nuevaClave = this.crearClaveAleatoria();
+      console.log(nuevaClave);
       let nuevaClaveCifrada = this.cifrarCadena(nuevaClave);
       usuario.clave = nuevaClaveCifrada;
       this.usuarioRepository.updateById(usuario._id, usuario)
@@ -218,7 +219,7 @@ export class SeguridadUsuarioService {
           nombre: `${usuario.nombres} ${usuario.apellidos}`,
           correo: usuario.correo,
           rol: usuario.rolId,
-          // isLogged: false
+          isLogged: false
         }
         try {
           cod.estado = false;
